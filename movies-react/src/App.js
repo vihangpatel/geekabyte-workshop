@@ -1,22 +1,53 @@
+// Library Imports
 import React, { Component } from 'react'
+import axios from 'axios'
+
 import logo from './logo.svg'
 import './App.css'
 
 // App Component Imports
 import TabBar from './movie-island/TabBar'
+import List from './movie-island/List'
+
+// API url config
+import { nowShowingUrl, topRatedUrl } from './movie-island/apiConfig'
 
 class App extends Component {
 	constructor() {
 		super()
 
 		this.onTabChange = this.onTabChange.bind(this)
+		this.state = { selectedType: 'now_showing' }
 	}
 
-	onTabChange(event) {
-		console.log('selected type :', event.target.getAttribute('data-type'))
+	onTabChange(selectedType) {
+		switch (selectedType) {
+			case 'now_showing': {
+				axios.get(nowShowingUrl).then(response => {
+					this.setState({
+						nowShowing: response,
+						selectedType
+					})
+				})
+				break
+			}
+
+			case 'top_rated':
+				axios.get(topRatedUrl).then(response => {
+					this.setState({
+						topRated: response,
+						selectedType
+					})
+				})
+				break
+
+			default:
+				break
+		}
 	}
 
 	render() {
+		const { selectedType, nowShowing, topRated } = this.state
 		return (
 			<div className='App'>
 				<header className='App-header'>
@@ -24,7 +55,9 @@ class App extends Component {
 					<h1 className='App-title'>Welcome to Movie-island</h1>
 				</header>
 				<p className='App-intro'>Click on the Following Tabs</p>
-				<TabBar onTabChange={this.onTabChange} />
+				<TabBar selectedType={selectedType} onTabChange={this.onTabChange} />
+				{selectedType === 'top_rated' && topRated && <List data={topRated} />}
+				{selectedType === 'now_showing' && nowShowing && <List data={nowShowing} />}
 			</div>
 		)
 	}

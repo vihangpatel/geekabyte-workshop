@@ -25,11 +25,13 @@
 .tab {
 	padding: 5px 15px;
 	color: #c02c39;
+	border: 1px solid gray;
 }
 
 .tab.selected {
 	color: white;
 	background: #c02c39;
+	border: 0px;
 }
 
 @keyframes App-logo-spin {
