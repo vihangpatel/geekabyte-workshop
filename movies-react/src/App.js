@@ -20,12 +20,20 @@ class App extends Component {
 		this.state = { selectedType: 'now_showing' }
 	}
 
+	componentDidMount() {
+		this.fetchData(this.state.selectedType)
+	}
+
 	onTabChange(selectedType) {
+		this.fetchData(selectedType)
+	}
+
+	fetchData(selectedType) {
 		switch (selectedType) {
 			case 'now_showing': {
 				axios.get(nowShowingUrl).then(response => {
 					this.setState({
-						nowShowing: response,
+						nowShowing: response.data.results,
 						selectedType
 					})
 				})
@@ -35,7 +43,7 @@ class App extends Component {
 			case 'top_rated':
 				axios.get(topRatedUrl).then(response => {
 					this.setState({
-						topRated: response,
+						topRated: response.data.results,
 						selectedType
 					})
 				})
@@ -48,6 +56,7 @@ class App extends Component {
 
 	render() {
 		const { selectedType, nowShowing, topRated } = this.state
+		console.log(nowShowing)
 		return (
 			<div className='App'>
 				<header className='App-header'>
