@@ -9,8 +9,12 @@ class TabBar extends Component {
 	render() {
 		return (
 			<div>
-				<span className='tab'>Now Showing</span>
-				<span className='tab'>Top Rated</span>
+				<span className='tab' data-type='now_showing' onClick={this.props.onTabChange}>
+					Now Showing
+				</span>
+				<span className='tab' data-type='top_rated' onClick={this.props.onTabChange}>
+					Top Rated
+				</span>
 			</div>
 		)
 	}

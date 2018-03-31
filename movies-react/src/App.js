@@ -6,6 +6,16 @@ import './App.css'
 import TabBar from './movie-island/TabBar'
 
 class App extends Component {
+	constructor() {
+		super()
+
+		this.onTabChange = this.onTabChange.bind(this)
+	}
+
+	onTabChange(event) {
+		console.log('selected type :', event.target.getAttribute('data-type'))
+	}
+
 	render() {
 		return (
 			<div className='App'>
@@ -14,7 +24,7 @@ class App extends Component {
 					<h1 className='App-title'>Welcome to Movie-island</h1>
 				</header>
 				<p className='App-intro'>Click on the Following Tabs</p>
-				<TabBar />
+				<TabBar onTabChange={this.onTabChange} />
 			</div>
 		)
 	}
