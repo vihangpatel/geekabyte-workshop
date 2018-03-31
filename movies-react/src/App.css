@@ -1,77 +1,75 @@
 .App {
-    text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
 }
 
 .App-header {
-    background-color: #c02c39;
-    color: white;
-    padding: 1px;
+	background-color: #c02c39;
+	color: white;
+	padding: 1px;
 }
 
 .App-title {
-    font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .App-intro {
-    font-size: large;
+	font-size: large;
 }
 
 .tab {
-    padding: 5px 15px;
-    color: #c02c39;
-    border: 1px solid gray;
+	padding: 5px 15px;
+	color: #c02c39;
+	border: 1px solid gray;
 }
 
 .tab.selected {
-    color: white;
-    background: #c02c39;
-    border: 0px;
+	color: white;
+	background: #c02c39;
+	border: 0px;
 }
 
 .card {
-    border: 1px solid;
-    height: 200px;
+	border: 1px solid;
+	height: 220px;
 }
 
 .card-detail {
-    position: relative;
+	position: relative;
+	text-align: left;
+	padding: 10px;
 }
 
 .card .img-container {
-    float: left;
-    padding: 2px;
-   
+	float: left;
+	padding: 10px;
 }
 
 .card .img-container img {
-        width: 150px;
-    height: 190px;
+	width: 150px;
+	height: 190px;
 }
-
 
 .card-detail span {
-    display: block;
+	display: block;
 }
 
-
-
-.container{
-    max-width: 1366px;
-    margin: 0 auto;
-    padding: 72px 96px;
-    position: relative;
+.container {
+	max-width: 1366px;
+	margin: 0 auto;
+	padding: 72px 96px;
+	position: relative;
 }
 
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
